@@ -5,7 +5,7 @@ const printPassTimes = function(passTimes) {
   for (const pass of passTimes) {
     const date = new Date(0);
     date.setUTCSeconds(pass.risetime);
-    console.log(`Next pass at ${date} for ${pass.duration} seconds!`)
+    console.log(`Next pass at ${date} for ${pass.duration} seconds!`);
   }
 };
 
@@ -15,4 +15,4 @@ nextISSTimesForMyLocation()
   })
   .catch((error) => {
     console.log("It didn't work: ", error.message);
-  })
+  });
