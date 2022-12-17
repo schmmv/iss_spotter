@@ -20,9 +20,9 @@ const fetchMyIP = function(callback) {
       callback(Error(msg), null);
       return;
     }
-    const IP = JSON.parse(body).ip
+    const IP = JSON.parse(body).ip;
     callback(null, IP);
-  })
+  });
 };
 
 module.exports = { fetchMyIP };
