@@ -24,14 +24,17 @@ const { nextISSTimesForMyLocation } = require('./iss');
 //   }
 //   console.log("It worked! Return fly over times:", data);
 // });
+const printPassTimes = function(passTimes) {
+  for (const pass of passTimes) {
+    const date = new Date(0);
+    date.setUTCSeconds(pass.risetime);
+    console.log(`Next pass at ${date} for ${pass.duration} seconds!`)
+  }
+};
 
 nextISSTimesForMyLocation((error, data) => {
   if (error) {
     return console.log("It didn't work!", error);
   }
-  for (const item of data) {
-    const date = new Date(0);
-    date.setUTCSeconds(item.risetime);
-    console.log(`Next pass at ${date} for ${item.duration} seconds!`);
-  }
+  printPassTimes(data);
 });
